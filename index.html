@@ -106,12 +106,17 @@ input:focus {
     var password1 = document.getElementById('psw1').value;
     var password2 = document.getElementById('psw2').value;
     var password3 = document.getElementById('psw3').value;
-    if (password1 == "nyc" && password2 == "bob" && password3 == "ant" )
-    {alert('Correct!');
+    if (password1.toLowerCase() == "nyc" && password2.toLowerCase() == "bob" && password3.toLowerCase() == "ant" )
+    {
      window.location = "https://pinzipictures.github.io/MIS/Hi.html";}
     else
-    {alert('Wrong Password');
-     return false;}
+    {
+     var elem = document.getElementById("myButton1");
+     elem.firstChild.firstChild.data = "⚠ Retry";
+     elem.style.color="white";
+     elem.style.background="red";
+     return false;
+     }
     }
 </script>
 </head>
@@ -135,7 +140,7 @@ input:focus {
       <label for="psw" class="emoji"><b>3. </b></label>
       <input type="text" placeholder="XXX" id="psw3" maxlength="3" required  style='text-transform:uppercase'>
     </div>    
-    <button type="submit" onclick="isValid(this);"><h2>Verify</h2></button>
+    <button type="submit" onclick="isValid(this);" id="myButton1" value="Open Curtain"><h2>Verify</h2></button>
 
   </div>
 
